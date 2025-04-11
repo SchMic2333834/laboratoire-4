@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "4be6ff38-2fe0-47f0-9b14-225d82368164",
+		"name": "Cards",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43267623"
+	},
+	"item": [
+		{
+			"name": "Get cards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}cards?",
+					"host": [
+						"{{base_url}}cards"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Get a card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/cards?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cards"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Post card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"id\": \"15646456\",\n        \"title\": \"Card 14545\",\n        \"author\": \"Description 134343\",\n        \"date\": \"2028-02-14\",\n        \"content\": \"<p class='text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maiores non id quam. Quam cumque facere aut ut ad delectus fugit alias molestiae. Facilis maxime enim tenetur maiores veritatis. Enim! Lorem ipsum dolor sit amet consectetur adipisicing elit. In delectus aliquid eveniet laudantium, recusandae hic, nesciunt suscipit iure facere, dolorem quibusdam! Illum ea modi obcaecati, corrupti esse fugiat molestias amet? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore saepe animi voluptatum hic, reiciendis quis eum a quasi qui aspernatur non, sapiente pariatur at beatae fugiat id ipsa, praesentium dolorum. <br> <br> <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, repellendus. Vel nam quos, est perspiciatis veniam voluptate fugit hic numquam sint? Placeat iure necessitatibus possimus ipsam commodi dignissimos similique ipsum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere exercitationem error quo reiciendis sapiente autem eum nobis architecto voluptates magni quod impedit unde, modi illo placeat laboriosam earum vel tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit asperiores fugiat pariatur! Optio inventore consequatur corporis voluptate a vel voluptates velit sed consectetur accusantium? Voluptatibus aperiam reiciendis repudiandae atque nemo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium explicabo inventore autem quis tempora esse aut, recusandae soluta quasi fugit at dicta porro excepturi voluptas ea officia ab dignissimos saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores numquam nulla soluta vitae ipsum architecto, porro quo animi iste laboriosam pariatur, adipisci sed est doloremque blanditiis molestias, eligendi totam fugiat.</p><figure class='figure d-flex justify-content-evenly align-items-center flex-column w-100 my-4'><img src='/images/placeholder.webp' class='figure-img img-fluid rounded' alt='A generic square placeholder image with rounded corners in a figure.'><figcaption class='figure-caption'>A caption for the above image.</figcaption></figure><p class='text-justify'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae consequatur distinctio reiciendis cupiditate maiores sequi sit ex mollitia, temporibus nostrum? Magni, adipisci autem perspiciatis id ipsam vel iure magnam totam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt esse reprehenderit est porro placeat odio, ducimus voluptate similique dolores commodi expedita tenetur dolorum. Obcaecati, explicabo a? Maxime adipisci quis earum.</p>\",\n        \"image\": \"/images/placeholder.webp\",\n        \"description\": \"Description 1wewew\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/cards",
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Update card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"15646456\",\n        \"title\": \"Card uwu\",\n        \"author\": \"uwuwuwuwu\",\n        \"date\": \"2069-02-14\",\n        \"content\": \"<p class='text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maiores non id quam. Quam cumque facere aut ut ad delectus fugit alias molestiae. Facilis maxime enim tenetur maiores veritatis. Enim! Lorem ipsum dolor sit amet consectetur adipisicing elit. In delectus aliquid eveniet laudantium, recusandae hic, nesciunt suscipit iure facere, dolorem quibusdam! Illum ea modi obcaecati, corrupti esse fugiat molestias amet? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore saepe animi voluptatum hic, reiciendis quis eum a quasi qui aspernatur non, sapiente pariatur at beatae fugiat id ipsa, praesentium dolorum. <br> <br> <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, repellendus. Vel nam quos, est perspiciatis veniam voluptate fugit hic numquam sint? Placeat iure necessitatibus possimus ipsam commodi dignissimos similique ipsum? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere exercitationem er distinctio reiciendis cupiditate maiores sequi sit ex mollitia, temporibus nostrum? Magni, adipisci autem perspiciatis id ipsam vel iure magnam totam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt esse reprehenderit est porro placeat odio, ducimus voluptate similique dolores commodi expedita tenetur dolorum. Obcaecati, explicabo a? Maxime adipisci quis earum.</p>\",\n        \"image\": \"/images/placeholder.webp\",\n        \"description\": \"Description uwuwuwuwu\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/cards?id=15646456",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cards"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "15646456"
+						}
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/cards?id=15646456",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cards"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "15646456"
+						}
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "localhost:3001/api/"
+		}
+	]
+}
